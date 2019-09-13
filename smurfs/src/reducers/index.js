@@ -1,13 +1,13 @@
 import {
     FETCHING_SMURFS_START,
     FETCHING_SMURFS_SUCCESS,
-    FETCHING_SMURFS_FAILURE,
+
     
 } from "../actions";
 
 const initialState = {
     
-    smurfs: null,
+    smurfs: [],
     isFetching: false,
     error: ""
   };
@@ -24,7 +24,7 @@ const initialState = {
         return {
           ...state,
           isFetching: false,
-          smurfs: state.smurfs.concat( action.payload)
+          smurfs: action.payload,
         };
      
       default:

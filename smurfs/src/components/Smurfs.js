@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getSmurfs } from "../actions";
 import {useEffect} from 'react';
+import Smurf from './Smurf';
 const Smurfs = ({ getSmurfs, smurfs, isFetching, error }) => {
   useEffect(() => {
     // run action creator when the component mounts
@@ -12,14 +13,16 @@ const Smurfs = ({ getSmurfs, smurfs, isFetching, error }) => {
   if (isFetching) {
     return <h3>Fetching your smurfs</h3>;
   }
+ console.log(smurfs);
  
+ 
+
   return (
     <div className="smurf-container">
         <h1>Smurf Village</h1>
-      <div className="smurf">
-     {smurfs.map(smurf => {
-         <Smurf smurf={smurf} />
-     })}
+      <div className="smurfs">
+     {smurfs.map(smurf =>
+       <Smurf smurf={smurf}/> )}
       </div>
     </div>
   );
