@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getSmurfs } from "../actions";
 import {useEffect} from 'react';
-const DogPhoto = ({ getSmurfs, smurfs, isFetching, error }) => {
+const Smurfs = ({ getSmurfs, smurfs, isFetching, error }) => {
   useEffect(() => {
     // run action creator when the component mounts
     getSmurfs();
@@ -17,7 +17,9 @@ const DogPhoto = ({ getSmurfs, smurfs, isFetching, error }) => {
     <div className="smurf-container">
         <h1>Smurf Village</h1>
       <div className="smurf">
-     {smurfs.map(smurf)}
+     {smurfs.map(smurf => {
+         <Smurf smurf={smurf} />
+     })}
       </div>
     </div>
   );
@@ -25,7 +27,7 @@ const DogPhoto = ({ getSmurfs, smurfs, isFetching, error }) => {
 
 const mapStateToProps = state => {
   return {
-    photo: state.photo,
+    smurfs: state.smurfs,
     isFetching: state.isFetching,
     error: state.error
   };
@@ -33,5 +35,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getPhoto }
-)(DogPhoto);
+  { getSmurfs }
+)(Smurfs);
