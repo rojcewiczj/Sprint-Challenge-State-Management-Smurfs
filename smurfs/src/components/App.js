@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Smurfs from './Smurfs';
 import SmurfsForm from './Form';
-import DeleteForm from './deleteForm'
+
 import "./App.css";
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
         <div>Have fun!</div>
         <Smurfs />
         <SmurfsForm />
-        <DeleteForm />
+        
       </div>
     );
   }

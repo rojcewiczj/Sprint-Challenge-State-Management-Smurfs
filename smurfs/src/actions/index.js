@@ -15,13 +15,10 @@ export const getSmurfs = () => dispatch => {
       //   dispatch({ type: FETCHING_PHOTO_FAILURE, payload: res.data.url });
       // });
   };
-  export const deleteSmurfs = (text) => dispatch => {
-    axios
-      .post(`http://localhost:3333/smurfs/${text}`)
-      .then(res => {
-        dispatch({ type: FETCHING_SMURFS_SUCCESS, payload: text });
-      })
-      // .catch(err => {
-      //   dispatch({ type: FETCHING_PHOTO_FAILURE, payload: res.data.url });
-      // });
-  };
+
+
+  export const REMOVE_SMURF = "REMOVE_SMURF";
+  export const removeSmurfAC = smurf => {
+      return { type: REMOVE_SMURF, payload: smurf}
+  }
+  

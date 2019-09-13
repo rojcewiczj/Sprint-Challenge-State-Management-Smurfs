@@ -1,8 +1,7 @@
 import {
     FETCHING_SMURFS_START,
     FETCHING_SMURFS_SUCCESS,
-
-    
+    REMOVE_SMURF
 } from "../actions";
 
 const initialState = {
@@ -15,6 +14,7 @@ const initialState = {
   export const reducer = (state = initialState, action) => {
     switch (action.type) {
       case FETCHING_SMURFS_START:
+          console.log(action)
         return {
           ...state,
           isFetching: true,
@@ -26,6 +26,18 @@ const initialState = {
           isFetching: false,
           smurfs: action.payload,
         };
+       case REMOVE_SMURF:
+           return {
+               ...state,
+                smurfs: state.smurfs.filter( item =>{
+                if (item.id !== action.payload.id) {
+                     return item
+                }
+              })
+            
+        }
+            
+           
      
       default:
         return state;
