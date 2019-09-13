@@ -21,4 +21,7 @@ export const getSmurfs = () => dispatch => {
   export const removeSmurfAC = smurf => {
       return { type: REMOVE_SMURF, payload: smurf}
   }
+
+
+
   
