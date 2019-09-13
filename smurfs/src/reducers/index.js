@@ -7,7 +7,7 @@ import {
 
 const initialState = {
     
-    smurfs: [],
+    smurfs: null,
     isFetching: false,
     error: ""
   };
